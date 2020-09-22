@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script>
+function proc1() {
+	reg = prompt("주민등록번호를 입력하세요. (입력예시 : xxxxxx-xxxxxxx)");
+	
+	c1 = reg.substr(0, 2);
+	c2 = reg.substr(2, 2);
+	c3 = reg.substr(4, 2);
+	
+	gen = parseInt(reg.substr(7, 1));
+	
+	res = "주민등록 번호 : " + reg + "<br>";
+// 	res += gen;
+	
+	switch(gen){
+	case 1 : case 2 : // 19xx
+		c1 = 19 + c1;
+		bir3 = c1+"."+c2+"."+c3;
+		bir = new Date(bir3);
+		res += "생년월일 : " + c1 + "년" + c2 + "월" + c3 +"일<br>";
+		if(gen == 1){
+			res += "성별 : 남자 <br>"; 
+		}else{
+			res += "성별 : 여자 <br>"; 
+		}
+		today = new Date();
+		age = today.getFullYear() - bir.getFullYear() + 1;
+		res += "나이 : "  + age;
+		break;
+	case 3 : case 4 : // 20xx
+		c1 = 20 + c1;
+		bir3 = c1+"."+c2+"."+c3;
+		bir = new Date(bir3);
+		res += "생년월일 : " + c1 + "년" + c2 + "월" + c3 +"일<br>";
+		if(gen == 1){
+			res += "성별 : 남자 <br>"; 
+		}else{
+			res += "성별 : 여자 <br>"; 
+		}
+		today = new Date();
+		age = today.getFullYear() - bir.getFullYear() + 1;
+		res += "나이 : "  + age;
+		break;
+	}
+	
+	document.getElementById("result1").innerHTML = res;
+}
+
+function proc2() {
+	reg = prompt("주민등록번호를 입력하세요. (입력예시 : xxxxxx-xxxxxxx)");
+	a = reg.substr(0,6) + reg.substr(7,7); // 하이폰이 index : 6
+	res = "주민등록 번호 : " + reg + "<br>";
+	
+	total = 0;
+	j = 2;
+	for(i=0; i < 8; i++){
+		total += parseInt(a.substr(i,1))*j; 
+		j++;
+	}
+	
+	k = 2;
+	for(i=8; i < 12;i++){
+		total += parseInt(a.substr(i,1))*k;
+		k++;
+	}
+	
+	avg = total%11; 
+	b = 11 - avg;
+	
+	if(b == 10){
+		b = 0;
+	}else if(b == 11){
+		b = 1;
+	}
+	
+	
+	if(b != a.substr(12,1)){
+		res += "올바르지 않는 주민등록번호입니다.";
+		document.getElementById("result2").innerHTML = res;
+		return;
+	}
+	
+	res += "올바른 주민등록번호입니다.";
+	document.getElementById("result2").innerHTML = res;
+	
+}
+
+function proc3() {
+	// 선생님의 proc2
+	
+	str = "234567892345"; // 문자열
+	code = prompt("주민번호 입력", "991010-1234567");
+	codearr = code.split("-"); // '-'을 기준으로 배열로 리턴
+	
+	// codearr[0] + codearr[1] => 9910101234567
+	code = codearr[0].concat(codearr[1]);
+	console.log("code = " + code);
+	console.log("code.length : " + code.length);
+	
+	sum = 0;
+	for(i=0; i<code.length-1; i++){
+		sum += code[i] * str.substr(i,1);
+	}
+	
+	value = 11 - (sum % 11);
+	
+	value = value % 10;
+	
+// 	if(value == 10) value = 0;
+// 	else if(value == 11) value = 1;
+	
+	res = "입력 : " + codearr[0] + "<br>";
+	if(value == code[code.length - 1]) res += "올바른 번호";
+	else res += "잘못된 번호";
+	
+	document.quertySelector("#result2").innerHTML = res;
+
+
+
+}
+</script>
+</head>
+<body>
+<div class="box">
+  <h3>문제1</h3>
+  <br>
+  <input type="button" value="문제1" onclick="proc1()">
+  <br><br>
+  <div id="result1"></div>
+ </div>
+ 
+<div class="box">
+  <h3>문제2</h3>
+    주민번호를 입력받아 true/false 판별 <br>
+    주민번호 : ABCDEF-GHIJKLM <br>
+  1. A*2 + B*3 + ... + H*9 + I*2 + ... + L*5 의 총합을 구한다. <br>
+  2. 1번의 합을 11로 나눈 나머지를 구한다.<br>
+  3. 11에서 2번의 결과를 뺀다.<br>
+  4. 3번의 결과가 0~9이면 값 그대로, 10이면 0, 11이면 1로 변환<br>
+  5. 4번의 결과와 M자리의 값이 같으면 맞는 번호이다.<br>
+  <br>
+  <input type="button" value="문제2" onclick="proc2()">
+  <br><br>
+  <div id="result2"></div>
+ </div>
+</body>
+</html>

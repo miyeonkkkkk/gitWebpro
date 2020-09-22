@@ -1,0 +1,59 @@
+
+!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+form{
+ text-align: center;
+ font-family: "굴림";
+}
+span{
+ font-size : 25px;
+ font-weight: bold;
+}
+</style>
+<script>
+window.onload = function() {
+	form = document.ff;
+}
+
+function proc1() {
+	dan = form.data.value;
+	
+	res = "";
+	for(i=1; i<10; i++){
+		res += dan+"&nbsp;*&nbsp;"+i+"&nbsp;=&nbsp;"+dan*i+"<br>";
+	}
+	
+	document.querySelector("#result1").innerHTML = res;
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3>form연습 4</h3>
+  <br>
+  <form name="ff">
+  <select name="data">
+   <option value="2">2단</option>
+   <option value="3">3단</option>
+   <option value="4">4단</option>
+   <option value="5">5단</option>
+   <option value="6">6단</option>
+   <option value="7">7단</option>
+   <option value="8">8단</option>
+   <option value="9">9단</option>
+  </select>
+  <input type="button" value="출 력" onclick="proc1()">
+  <br><br>
+  <span>결과 출력</span><br>
+  <div id="result1" name="d">
+  </div>
+  </form>
+ </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script>
+function proc1() {
+	today = new Date();
+	res = "오늘 날짜 : " + today.toLocaleDateString() + "<br>";
+	
+	birday = new Date("1996.04.20");
+	res += "태어난 날짜 : " + birday.toLocaleDateString() + "<br>";
+	
+	times = today.getTime() - birday.getTime();
+	res += "살아온 시간(milliseconds) : " + times + "<br>";
+	
+	res += "살아온 시간(초) : " + times/1000 + "<br>";
+	res += "살아온 시간(분) : " + times/1000/60 + "<br>";
+	res += "살아온 시간(시) : " + times/1000/60/60 + "<br>";
+	res += "살아온 시간(일) : " + times/1000/60/60/24 + "<br>";
+	res += "살아온 시간(년) : " + times/1000/60/60/24/365 + "<br>";
+	
+	document.getElementById("result1").innerHTML = res;
+}
+
+function proc2() {
+	// 오늘 날짜 생성
+	today = new Date();
+	res = "오늘 날짜 : " + today.toLocaleDateString() + "<br>";
+	
+	// times = 오늘의 millisec + 100일의 millisec
+	h = 1000*60*60*24*100;
+	times = today.getTime() + h;
+	
+	// 새로운 Date 생성 - nday = new Date(times)
+	nday = new Date(times);
+	
+	res += "오늘로부터 100일후의 날짜 : " + nday.toLocaleDateString() + "<br>";
+	
+	document.getElementById("result2").innerHTML = res;
+}
+
+function proc3() {
+	today = new Date();
+	res = "오늘 날짜 : " + today.toLocaleDateString() + "<br>";
+	
+	cday = new Date("2020.12.25");
+	res += "크리스마스 날짜 : " + cday.toLocaleDateString() + "<br>";
+	
+	times = cday.getTime() - today.getTime();
+	res += "크리스마스까지 남은 시간(milliseconds) : " + times + "<br>";
+	
+	res += "크리스마스까지 남은 시간(초) : " + parseInt(times/1000) + "<br>";
+	res += "크리스마스까지 남은 시간(분) : " + parseInt(times/1000/60) + "<br>";
+	res += "크리스마스까지 남은 시간(시) : " + parseInt(times/1000/60/60) + "<br>";
+	res += "크리스마스까지 남은 시간(일) : " + parseInt(times/1000/60/60/24) + "<br>";
+	res += "크리스마스까지 남은 시간(년) : " + parseInt(times/1000/60/60/24/365) + "<br>";
+	
+	document.getElementById("result3").innerHTML = res;
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3>1. 경과시간 </h3>
+  - 태어난 날로 부터 현재까지 날 수 구하기 <br>
+  - birthday = new Date("태어난날"); <br>
+  - today = new Date(); : 현재 날짜 <br>
+  <br>
+  <input type="button" value="확인" onclick="proc1()">
+  <br><br>
+  <div id="result1"></div>
+ </div>
+ 
+<div class="box">
+  <h3>2. 경과시간 </h3>
+  - 오늘부터 1일 일때 100일 후 구하기<br>
+  - today = new Date()<br>
+  - 100일의 milliseconds 값 구하기<br>
+  - today.getTime() + 100일의 milliseconds <br>
+  <br>
+  <input type="button" value="확인" onclick="proc2()">
+  <br><br>
+  <div id="result2"></div>
+ </div>
+ 
+<div class="box">
+  <h3>3. 경과시간 </h3>
+  - 크리스마스 까지 남은 날 수 구하기<br>
+  <br>
+  <input type="button" value="확인" onclick="proc3()">
+  <br><br>
+  <div id="result3"></div>
+ </div>
+</body>
+</html>

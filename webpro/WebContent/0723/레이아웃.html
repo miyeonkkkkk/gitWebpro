@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+div{
+  box-sizing: border-box;
+  margin : 2px;
+  padding : 5px;
+}
+#header{
+  height: 80px;
+  background-image: linear-gradient(deepskyblue, yellow);
+  text-align: center;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: bold;
+  border-radius: 50px;
+}
+#nav{
+  width: calc(30% - 1%);
+  height: 500px;
+  float : left;
+  background-image: linear-gradient(orange, yellow);
+  border-radius: 50px;
+  font-size: 20px;
+}
+#content{
+  width: calc(69% - 1%);
+  height: 500px;
+  float : left;
+  background-image: linear-gradient(#FF66CC, #FFCCCC);
+  border-radius: 50px;
+}
+#footer{
+  height : 80px;
+  background-image: linear-gradient(deepskyblue, yellow);
+  clear: both; 
+  text-align: center;
+  color : white;
+  font-size: 30px;
+  border-radius: 50px;
+}
+img{
+  width: 250px;
+  height: 200px;
+}
+p{
+  font-family: fantasy;
+}
+</style>
+</head>
+<body>
+<div id="header">
+My Blog Page
+</div>
+<div id="nav">
+<h2>Links</h2>
+  <ul>
+    <li><a href="https://www.w3.org/" >W3C</a></li>
+    <li><a href="https://www.naver.com/" >Naver</a></li>
+    <li><a href="https://www.daum.net/" >Daum</a></li>
+  </ul>
+  <img alt="이미지 읍엉" src="../images/커피프린스jpg.jpg">
+   <p>커피프린스 1호점</p>
+</div>
+<div id="content">
+ <div class="dd">
+  <h3>Semantic Tags</h3>
+  <p>시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적을
+   명확하게 알려주는 요소이다.</p>
+ </div>
+ 
+ <div class="dd">
+  <h3>div와 span</h3>
+  <p>div은 "divide"의 약자로서 페이지를 논리적인 섹션으로 분리하는데 사용
+  되는 태그이다. span요소는 인라인 요소로서 텍스트를 위한 컨테이너로 
+  사용할 수 있다.</p>
+ </div>
+
+</div>
+<div id="footer">
+  Copyright (c) 2013 Hong
+</div>
+
+
+<!-- 시맨틱요소 -->
+<!-- <header></header> -->
+<!-- <nav> -->
+<!-- <figure> -->
+<!-- <img src=""> -->
+<!-- <figcaption>홍길동</figcaption> -->
+<!-- </figure> -->
+<!-- </nav> -->
+<!-- <section> -->
+<!--  <article></article> -->
+<!-- </section> -->
+<!-- <footer></footer> -->
+
+</body>
+</html>

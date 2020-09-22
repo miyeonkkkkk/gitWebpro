@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script>
+arr = ["복숭아","참외","사과","수박","포도","사과","바나나","사과","자두"];
+
+function proc1() {
+	// 과일 이름 입력
+	a = prompt("과일 이름을 입력하세요.");
+	idx = arr.indexOf(a) + 1;
+	res = "찾는 과일 : " + a + "<br>";
+	
+	if(idx == 0){
+		res += "찾는 과일은 없습니다.";
+	}else{
+		res += idx + "번째에 있습니다.";
+	}
+	
+	document.querySelector("#result1").innerHTML = res;
+}
+
+function proc2() {
+	// 과일 이름 입력
+	a = prompt("과일 이름을 입력하세요.");
+	idx = arr.lastIndexOf(a) + 1;
+	res = "찾는 과일 : " + a + "<br>";
+	if(idx == 0){
+		res += "찾는 과일은 없습니다.";
+	}else{
+		res += idx + "번째에 있습니다.";
+	}
+	
+	document.querySelector("#result2").innerHTML = res;
+}
+
+function proc3() {
+	// 과일 이름 입력
+	a = prompt("과일 이름을 입력하세요.");
+	idx = 0;
+	res = "";
+	res += "찾는 과일 : " + a + "<br>";
+	while(true){
+		idx = arr.indexOf(a,idx);
+		if(idx == -1){
+			break;
+		}
+		res += (idx+1) + "번째 ";
+		idx++;
+	}
+	res += "에 있습니다."
+	
+	document.querySelector("#result3").innerHTML = res;
+}
+
+function proc4() {
+	// 추가할 과일 이름 입력
+	a = prompt("추가할 과일 이름을 입력하세요.");
+	
+	// arr의 원래 배열을 출력하기
+	res = "arr 추가 전 원래 배열<br>";
+	res += arr;
+	
+	// arr배열에 추가 한다.
+	arr.push(a);
+	
+	// arr의 새로 추가 된 배열을 출력 누적
+	res += "<br><br>arr 추가 후 배열<br>"
+	res += arr;
+	
+	// result4에 출력
+	document.querySelector("#result4").innerHTML = res;
+}
+
+function proc5() {
+	// arr의 원래 배열을 출력하기
+	res = "arr 제거 전 원래 배열<br>";
+	res += arr;
+	
+	// 마지막 인덱스 번째 요소를 제거 한다.
+	arr.pop();
+	
+	// arr의 제거 후 배열을 출력 누적
+	res += "<br><br>arr 제거 후 배열<br>"
+	res += arr;
+	
+	// result4에 출력
+	document.querySelector("#result5").innerHTML = res;
+}
+
+function proc6() {
+// 	mylotto = new Array();
+	mylotto = [];
+	idx = 0;
+	while(true){
+		a = Math.floor((Math.random()*45+1));
+		idx = mylotto.indexOf(a);
+		
+		if(idx == -1){
+		   mylotto.push(a);
+		}else{
+			continue;
+		}
+		
+		if(mylotto.length == 5){
+			break;
+		}
+	}
+	res = mylotto;
+	document.querySelector("#result6").innerHTML = res;
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3>1. indexOf/ lastIndexOf</h3>
+  arr = ["복숭아","참외","사과","수박","포도","사과","바나나","사과","자두"]<br>
+  indexOf("사과")<br>
+  indexOf("사과",1) : 인덱스 번째 이후에 처음 만나는 "사과"<br>
+  lastindexOf("사과")<br>
+  <br>
+  <input type="button" value="indexOf" onclick="proc1()">
+  <input type="button" value="lastIndexOf" onclick="proc2()">
+  <input type="button" value="중복찾기" onclick="proc3()">
+  <br><br>
+  <div id="result1"></div>
+  <div id="result2"></div>
+  <div id="result3"></div>
+ </div>
+ 
+<div class="box">
+  <h3>2. push/ pop</h3>
+  - push : 배열의 마지막에 추가<br>
+  - pop : 배열의 마지막 요소를 제거<br>
+  <br>
+  <input type="button" value="push" onclick="proc4()">
+  <input type="button" value="pop" onclick="proc5()">
+  <br><br>
+  <div id="result4"></div>
+  <div id="result5"></div>
+ </div>
+</body>
+
+<div class="box">
+  <h3>3. push 예제</h3>
+  - 버튼을 클릭하면 1 ~ 45 까지 랜덤을 5개씩 발생<br>
+  - mylotto배열에 저장 : 배열선언 : mylotto = []/ mylotto = new Array()<br>
+  - 중복없이 저장 - 중복 체크 :idx = indexOf(수) <br>
+  <br>
+  <input type="button" value="push" onclick="proc6()">
+  <br><br>
+  <div id="result6"></div>
+ </div>
+</body>
+</html>

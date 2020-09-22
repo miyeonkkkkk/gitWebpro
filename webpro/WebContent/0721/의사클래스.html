@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css" type="text/css">
+<style>
+/* 방문전, 처음 초기 상태 */
+a:link{
+	color : red;
+	text-decoration : none; /* 밑줄 없음 */
+}
+/* 방문하고 나서 */
+a:visited{
+	color : green;
+}
+/* 마우스를 올려놓았을 때 */
+a:hover{
+	background : yellow;
+	font-size : 1.2em;
+	text-decoration : overline; /* 위에 밑줄 만들기 */
+}
+/* 마우스를 눌렀을때 */
+a:active{
+	color : blue;
+	/*text-decoration : underline; /* 아래에 밑줄 만들기 */
+	text-decoration : line-through; /* 단어에 밑줄 긋기 , visited에서는 안됨 */
+}
+td{
+	width : 200px;
+	height : 40px;
+	text-align : center;
+}
+#tab1 td:nth-child(1){ /*tr에서 첫번째 자식인 td를 선택하라*/
+	background : red;
+}
+#tab1 td:nth-child(2n){ /*tr에서 짝수번째 자식인 td를 선택하라*/
+	background : lightblue;
+}
+table{
+	margin-top : 30px;
+}
+#tab2 tr:nth-child(2n){ 
+	background : #FAF4C0;
+}
+#tab2 tr:nth-child(2n-1){ 
+	/*background : #E4F7BA;*/
+	/*background : rgb(80%,50%,30%); 수치가 높을수록 파스텔톤 */
+	background : rgba(255,103,150,0.2);
+	
+}
+</style>
+<script type="text/javascript">
+ function changeColor(){
+	 // 배경색 변경
+	 
+	 // tab1의 td에 접근 - class을 적용
+	 td1 = document.querySelectorAll('.td1'); // body태그에 있는 것들이 오브젝트로 바뀐다.
+	 for(i =0; i < td1.length; i++){
+		r = parseInt(Math.random()*256);
+		g = parseInt(Math.random()*256);
+		b = parseInt(Math.random()*256);
+// 		a = Math.random();
+// 	 	td1[i].style.backgroundColor = 'rgba('+r+','+g+','+b+','+a+')';
+	 	
+	 	r16 = r.toString(16);
+	 	g16 = g.toString(16);
+	 	b16 = b.toString(16);
+	 	td1[i].style.backgroundColor = '#'+r16+g16+b16 ;
+// 	 	td1[i].style.backgroundColor = '#CEFBC9';
+	 }
+	 
+ }
+</script>
+</head>
+<body>
+<pre>
+의사클래스 (pseudo-class, 가상클래스):
+클래스가 정의된 것처럼 간주. ':' 으로 사용
+상태나 구조에 의해서 선택이 이루어진다.
+
+상태
+ a:link => 처음상태
+ a:visited => 한번 방문한 상태
+ a:hover => 마우스가 올려있는 상태
+ a:active => 마우스를 down 하는 상태
+ 
+</pre>
+<a href="http://www.naver.com">네이버</a>
+<a href="http://www.daum.net">다음</a>
+<a href="../아메리카노.html">아메리카노</a>
+<br><br>
+
+<h3>tab1에서 첫번째 td를 선택<br>
+짝수번째 td를 선택
+</h3>
+버튼을 클릭하면 #tab1에서 첫번째 td의 배경색을 변경한다.<br>
+<input type="button" value="확인" onclick="changeColor()">
+<table id="tab1" border="1">
+	<tr>
+		<td class="td1">1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	
+	<tr>
+		<td class="td1">1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	
+	<tr>
+		<td class="td1">1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+</table>
+
+<h3>tab2에서 짝수번째 tr을 선택</h3>
+<table id="tab2" border="1">
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script>
+// 앞에 타입을 적어도 전역변수이다.
+var arr = ["복숭아","참외","사과","수박","포도","사과","바나나","사과","자두"];
+var arr2 = [234, 21, 150, 11, 55, 501];
+function proc1() {
+	res = "원래 배열 " + arr + "<br>";
+	// 시작 위치 입력
+	while(true){
+	  start = prompt("시작위치를 입력해주세요.");
+	  if(start < 0){
+		continue;
+	  }
+	  break;
+	}
+	// 끝 위치 입력
+	while(true){
+	  end = prompt("끝위치를 입력해주세요.");
+	  if(end < start || end > arr.length){
+		continue;
+	  }
+	  break;
+	}
+	
+	a = arr.slice(start,end);
+	res += "추출한 요소 slice("+ start + ", "+ end + ") " + a + "<br>";
+	
+	document.querySelector("#result1").innerHTML = res;
+}
+
+function proc2() {
+	res = "원래 배열 " + arr + "<br>";
+	// 2번째 위치에서 1개를 삭제하고, "파인애플","체리"를 삽입한다.
+	arr.splice(2, 1, "파인애플", "체리");
+	
+	res += 'splice(2, 1, "파인애플", "체리") 후 배열 : ' + arr + "<br>";
+	document.querySelector("#result2").innerHTML = res;
+}
+
+function proc3() {
+	var arr = [1,2,3,4,6];
+	
+	res = "원래 배열1 : " + arr + "<br>";
+	res += "arr.length : " + arr.length + "<br>";
+	res += "원래 배열2 : " + window.arr + "<br>";
+	res += "window.arr.length : " + window.arr.length + "<br>";
+	arr = arr.concat(window.arr);
+	
+	res += 'concat(window.arr) 후 배열 : ' + arr + "<br>";
+	res += "arr.length : " + arr.length + "<br>";
+	document.getElementById("result3").innerHTML = res;
+}
+
+function proc4() {
+	res = "원래 배열 : " + arr + "<br>";
+	res += 'arr.length : ' + arr.length +"<br>";
+	for(i=0; i<arr.length; i++){
+		res += arr[i] + "&nbsp;&nbsp;";
+	}
+	res += "<br>";
+	
+	str = arr.join("/"); // 문자열 구분 문자
+	
+	res += 'arr.join("/") 후 문자열 : ' + str + "<br>";
+	res += 'arr.join("/").length : ' + str.length +"<br>";
+	
+	for(i=0; i<str.length; i++){
+		res += str[i] + "&nbsp;&nbsp;";
+	}
+	document.querySelector("#result4").innerHTML = res;
+}
+
+function proc5() {
+	res = "원래 배열 : " + arr + "<br>";
+	
+	arr.reverse(); // 반환 받지 않아도 된다.
+	
+	res += "arr.reverse() : " + arr + "<br>";
+	for(i=0; i<arr.length; i++){
+		res += arr[i] + "&nbsp;&nbsp;";
+	}
+	res += "<br>";
+	
+	document.querySelector("#result5").innerHTML = res;
+}
+
+function proc6() {
+	res = "원래 배열 : " + arr2 + "<br>";
+	
+	arr2.sort();
+	
+	res += "arr2.sort() : " + arr2 + "<br>";
+	
+	document.querySelector("#result6").innerHTML = res;
+}
+
+function proc7() {
+	res = "원래 배열 : " + arr2 + "<br>";
+	
+	arr2.sort(function(a, b){
+		// 연산 후 양수 값이 나오면 자리가 바뀐다.
+		return a - b;
+	});
+	res += "arr2.sort() asc : " + arr2 + "<br>";
+	
+	document.querySelector("#result7").innerHTML = res;
+}
+
+function proc8() {
+	res = "원래 배열 : " + arr2 + "<br>";
+	
+	arr2.sort(function(a, b){
+		// 연산 후 양수 값이 나오면 자리가 바뀐다.
+		return b - a;
+	});
+	
+	res += "arr2.sort() desc : " + arr2 + "<br>";
+	
+	document.querySelector("#result8").innerHTML = res;
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3>1. slice/ splice </h3>
+  - slice(start, end) : start ~ end-1 까지의 요소를 추출<br>
+  - splice(index, n, a,b,c..) : index위치에서 n개를 삭제하고 
+                                a,b,c...요소를 추가한다.<br>
+  <br>
+  <input type="button" value="slice" onclick="proc1()">
+  <input type="button" value="splice" onclick="proc2()">
+  <br><br>
+  <div id="result1"></div>
+  <div id="result2"></div>
+ </div>
+ 
+<div class="box">
+  <h3>2. concat/ join </h3>
+  - a.concat(b,c,...) : 여러개의 배열 요소를 한개의 배열로 합친다.<br>
+  - a.join() : 한개의 배열요소를 하나의 문자열로 변환한다.<br>
+  - a.reverse() : a배열의 순서를 뒤집기<br>
+  <br>
+  <input type="button" value="concat" onclick="proc3()">
+  <input type="button" value="join" onclick="proc4()">
+  <input type="button" value="reverse" onclick="proc5()">
+  <br><br>
+  <div id="result3"></div>
+  <div id="result4"></div>
+  <div id="result5"></div>
+ </div>
+ 
+<div class="box">
+  <h3>3. sort </h3>
+  - arr = [234, 21, 150, 11, 55, 501]<br>
+  - a.sort()<br>
+  - sort 결과(자릿수 크기별로 sort하기 때문) : 11 150 21 234 501 55<br>
+  - 오름차순 : 11 21 55 150 234 501<br>
+  - 내림차순 : 501 234 150 55 21 11<br>
+  <br>
+  <input type="button" value="sort" onclick="proc6()">
+  <input type="button" value="sort_as" onclick="proc7()">
+  <input type="button" value="sort_des" onclick="proc8()">
+  <br><br>
+  <div id="result6"></div>
+  <div id="result7"></div>
+  <div id="result8"></div>
+</div>
+ 
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+form{
+  font-family: "굴림";
+  font-size: 20px;
+}
+#t{
+ display : inline-block;
+ width: 10px;
+}
+#btn{
+ font-size: 20px;
+}
+</style>
+<script>
+window.onload = function() {
+	form = document.ff;
+	
+	form.data.focus(); 
+	
+}
+function print() {
+
+	// text의 값을 가져온다.
+	dan = form.data.value;
+	
+	// textarea에 출력한다.
+	res = dan +"단 \n\n";
+	
+	for(i=1; i<10; i++){
+		res += dan + " * " + i + " = " + dan*i + "\n";
+		form.area.value = res;
+	}
+	
+	// 공백
+	form.data.value = "";
+	form.data.focus(); // 커서를 깜빡하게 하는것
+  
+	
+}
+
+</script>
+
+</head>
+<body>
+
+<div class="box">
+  <h3>form연습 1</h3>
+  <br>
+  <form name="ff">
+   <input id="t1" type="text" name="data">&nbsp;<strong>단</strong>&nbsp;
+   <input id="btn" type="button" value="출력" onclick="print()">
+   <br><br>
+   <textarea name="area" rows="20" cols="30" style="resize: none"></textarea>
+  </form>
+ </div>
+</body>
+</html>

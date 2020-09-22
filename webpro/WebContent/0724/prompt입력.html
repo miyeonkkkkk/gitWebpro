@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script>
+  // 스크립트가 항상 먼저 실행 후 body부분이 실행된다.
+  window.onload = function(){
+	// "이름을 입력"부분은 필수, 한글 또는 영문은 선택사항, 안적어도 무방
+	var name = prompt("이름을 입력", "한글 또는 영문");
+	//document.write("이름 : " + name);
+	vout = document.getElementById('out'); // div의 out을 못찾는다.
+	vout.innerHTML = "이름 : " + name;
+  }
+  
+  function add(){
+	  // 숫자이외의 입력시  NaN(Not a Number) 출력
+	  let x = prompt("첫번째 정수를 입력하세요");
+	  let y = prompt("두번째 정수를 입력하세요");
+	  
+	  x = parseInt(x);
+	  y = parseInt(y);
+	  
+	  sum = x + y;
+	  vsum = document.getElementById('sum');
+	  
+	  let res = "입력1 : " + x + "<br>";
+	  res += "입력2 : " + y + "<br>";
+	  res += "덧셈 결과 : " + sum; 
+	  
+	  vsum.innerHTML = res;
+  }
+	
+</script>
+</head>
+<body>
+  <pre>
+      실행시 이름을 prompt() 함수를 이용하여 입력하고
+      결과를 div에 출력한다.
+  </pre>
+  
+  <div id="out"></div>
+  
+  <pre>
+     확인버튼을 클릭하면 두 개의 수를 입력하여 
+     덧셈을 하고 div에 출력
+  </pre>
+  <input type="button" value="확인" onclick="add()">
+  <br>
+  <div id="sum"></div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+pre{
+	background : pink;
+}
+fieldset{
+	width : 50%;
+}
+label{
+	display : inline-block;
+	width : 100px;
+	height : 40px;
+}
+
+</style>
+</head>
+<body>
+<pre style="background : yellow;"> <!-- 인라인 스타일은 html5 표준이 아니다. -->
+작성팁
+fieldset : 입력 항목들의 그룹핑
+legend : fieldset의 제목
+label : 일반문자, 문자의 길이를 같게 하기 위해서 사용
+  - label 요소가 인라인 요소이기 때문에
+  - display : inline-block 의 형태로 스타일을 지정해야만
+  가로,세로 길이를 설정할 수 있다.
+
+</pre>
+ <form>
+     <fieldset>
+     <legend>인적사항</legend>
+     <label> 이름</label>
+     <input type="text"><br>
+     <label> 전화번호</label>
+     <input type="text"><br>
+     </fieldset>
+      
+     <fieldset>
+     <legend>경력사항</legend>
+    <label> 이메일</label>
+    <input type="text"><br>
+     <label> 생일</label>
+     <input type="date"><br>
+     </fieldset>   
+ </form>
+ 
+ <hr color ="blue">
+ <form>
+ <fieldset>
+     <label> 이름</label>
+     <input type="text"><br>
+     <label> 이메일</label>
+     <input type="text"><br>
+     <label>내용</label>
+     <textarea name="area" rows="10" cols="60"></textarea><br>
+     <input type="submit" value ="전송">
+     <input type="reset" value ="재설정">
+     </fieldset>
+ </form>
+ 
+ <hr color ="blue">
+ 
+ <form>
+  <fieldset>
+   <label> 이름</label>
+     <input type="text"><br>
+     <label> 주소</label>
+     <input type="text"><br>
+     <label> 이메일</label>
+     <input type="text"><br>
+     <input type="radio" name="gender">Male<br>
+     <input type="radio" name="gender">Female<br>
+     <input type="submit" value ="Send">
+     <input type="reset" value ="원래대로">
+     </fieldset>
+ </form>
+
+</body>
+</html>

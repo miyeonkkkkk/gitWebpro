@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script>
+var circle = {
+ rad : 4,
+ getArea : function() {
+  // 반지름*반지름*3.14
+		  
+  // 메서드안에서만 사용가능 변수, 지역변수일때는 return
+  // var area = this.rad*this.rad*Math.PI;
+  var area = Math.floor(Math.pow(this.rad,2)*Math.PI);
+  return area;
+ },
+ getCircum : function() {
+  // 반지름*2*3.14
+		  
+  // 전역변수 일때는 return 안해도된다.
+  cir = Math.floor(this.rad*2*Math.PI);
+  return cir;
+ }
+};
+  
+var rect = {
+ width : 3, 
+ height : 5, 
+ name : "네모", 
+ getArea : function() {
+  var area = this.width * this.height;
+  return area;
+ },
+ getRectcum : function() {
+  rec = (this.width+this.height)*2;
+  return rec;
+ }
+};
+  
+function proc1() {
+ circle.name = "동그라미";
+	  
+ res = "이름 : " + circle.name + "<br>";
+ res += "반지름 : " + circle.rad + "<br>";
+ res += "면적 : " + circle.getArea() + "<br>";
+ res += "둘레 : " + circle.getCircum() + "<br>";
+	
+ document.getElementById('result1').innerHTML = res;
+}
+  
+function proc2() {
+ res = "이름 : " + rect.name + "<br>";
+ res += "가로 : " + rect.width + "<br>";
+ res += "세로 : " + rect.height + "<br>";
+ res += "면적 : " + rect.getArea() + "<br>";
+ res += "둘레 : " + rect.getRectcum() + "<br>";
+	
+ document.getElementById('result2').innerHTML = res;
+} 
+</script>
+
+</head>
+<body>
+<div class="box">
+  <h3>1. circle객체 생성</h3>
+  - 속성    : rad(반지름) <br>
+  - 메서드 : getArea()(면적 구하기), getCircum()(둘레 구하기)<br>
+  <br>
+  <input type="button" value="확인" onclick="proc1()">
+  <br><br>
+  <div id="result1"></div>
+ </div>
+ 
+<div class="box">
+  <h3>2. Rect 객체 생성</h3>
+  - 속성    : width(가로), height(세로), name(이름) <br>
+  - 메서드 : getArea()(면적 구하기), getCircum()(둘레 구하기)<br>
+  <br>
+  <input type="button" value="확인" onclick="proc2()">
+  <br><br>
+  <div id="result2"></div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</body>
+</html>

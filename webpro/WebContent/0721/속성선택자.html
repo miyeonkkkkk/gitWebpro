@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+  pre{
+  	padding : 10px;
+  }
+  p{
+	font-size : 1.5em;
+   }
+  p[class=pp]{
+  	color : blue;
+  }
+  span[class=pp]{
+  	font-size : 2.0em;
+  	font-weight : bold;
+  }
+  strong{
+  	font-size : 1.4em;
+  }
+  p[id=p4]{
+  	background-color : #f1d1e1;
+  }
+  p[title=무궁화1]{
+  	border : 3px solid green;
+  }
+  p[title]{
+  	font-style : italic;
+  	color : red;
+  }
+  p[id]{
+    text-align : center;
+    text-shadow : 20px 10px 5px gray;
+  }
+ /*
+ 속성관련 선택자
+  .pp
+  p.pp
+  p[class=pp]
+  span.pp
+  span[class=pp]
+  #p4
+  p[id=p4]
+  p[title=무궁화1]
+  p[title]
+  p[id]*/
+   
+</style>
+</head>
+<body>
+<pre>
+작성팁
+속성 관련 선택
+<strong> .pp</strong>
+<strong>  p.pp</strong>
+ <strong> p[class=pp]</strong> color : blue;
+ <strong> span.pp</strong>
+ <strong> span[class=pp]</strong> font-size : 2.0em; font-weight : bold;
+ <strong> #p4</strong>
+ <strong> p[id=p4]</strong> background-color : #f1d1e1;
+ <strong> p[title=무궁화1]</strong> border : 3px solid green;
+ <strong> p[title]</strong> font-style : italic; color : red;
+ <strong> p[id]</strong> text-align : center;  text-shadow : 20px 10px 0px blue;
+ 
+ 글자의 그림자
+ text-shadow : 20px(x좌표) 10px(y좌표) 5px(선명도, 숫자가 커질수록 흐려진다.) gray(그림자 색);
+</pre>
+<div>
+	<p title="무궁화1" id="p1">1무궁화 꽃이 피었습니다</p>
+	<!-- title은 마우스를 올려놓았을 때 팝업창 -->
+	<p class ="pp">2무궁화 꽃이 피었습니다</p>
+	<p title="무궁화3" class ="pp">3무궁화 꽃이 피었습니다</p>
+	<p id="p4">4무궁화 꽃이 피었습니다</p>
+	<p class ="pp2">5무궁화 꽃이 피었습니다</p>
+	
+	<span class="pp">사과</span>
+	<span>복숭아</span>
+	<span>수박</span>
+
+</div>
+</body>
+</html>

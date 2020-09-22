@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+/* #clear{ */
+/*  display : none; */
+/* } */
+</style>
+<script>
+window.onload = function(){
+	document.querySelector("#clear").style.display = "none";
+	
+// 	result2 = document.body;
+// 	btnok = document.getElementById('ok');
+// 	btnclear = document.getElementById('clear');
+}
+
+function proc1(but) {
+	but.style.display = "none";
+	ok = but;
+	document.querySelector("#clear").style.display = "inline";
+	
+// 	btnok.style.display = "none";
+// 	btnclear.style.display = "inline";
+	
+	a = setInterval(function(){
+		cr = parseInt(Math.random()*255);
+		cg = parseInt(Math.random()*255);
+		cb = parseInt(Math.random()*255);
+		ca = parseInt(Math.random()*255);
+			
+		document.body.style.backgroundColor = `rgba(${cr},${cg},${cb},${ca})`;
+		
+	}, 1000);
+}
+
+function proc2(clear) {
+	ok.style.display = "inline";
+	clear.style.display = "none";
+	
+// 	btnok.style.display = "inline";
+// 	btnclear.style.display = "none";
+	
+	clearInterval(a);
+	
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3>1. 1초마다 한번씩 배경색 바꾸기</h3>
+  - 종료 버튼 만들기 : 처음 실행시 보이지 않게 설정
+  - 확인 버튼 클릭시 배경색 바꾸기가 실행되고 종료버튼이 보여진다.
+  <br>
+  <input id = "ok" type="button" value="확인" onclick="proc1(this)">
+  <input id = "clear" type="button" value="종료" onclick="proc2(this)">
+  <br><br>
+  <div id="result1"></div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+img{
+ width : 100px;
+ height: 100px;
+}
+</style>
+
+<script>
+ window.onload = function () {
+	end = document.querySelector("#end");
+	start = document.querySelector("#start");
+	
+	end.style.display = "none";
+}
+ function proc1() {
+	end.style.display = "inline";
+	start.style.display = "none";
+	result1 = document.getElementById("result1");
+	
+	a = setInterval(function() {
+		// result1에서 첫번째 요소를 선택한다.
+		fc = result1.firstChild; // 이미지 오브젝트
+		
+		// result1에서 선택한 첫번째 요소를 추가한다.
+		result1.appendChild(fc);
+		
+	}, 500);
+}
+ function proc2() {
+	 end.style.display = "none";
+	 start.style.display = "inline";
+	 
+	 clearInterval(a);
+	 
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3>1. 이미지 회전</h3>
+  - 1초마다 한번씩 맨처음 이미지를 마지막으로 옮긴다.<br>
+  - 첫번째 이미지를 선택한다. : firstChild<br>
+  - result1에 추가한다. : appendChild()<br>
+  - 기존에 이미 존재하는 요소를 추가하면 기존의 요소는 삭제된다. : 잘라내기/붙여넣기<br>
+  <br>
+  <input id="start" type="button" value="확인" onclick="proc1()">
+  <input id="end" type="button" value="종료" onclick="proc2()">
+  <br><br>
+  <div id="result1">
+   <img src="../images/국화.jpg" alt="읍어">
+   <img src="../images/꽃.jpg" alt="읍어">
+   <img src="../images/단풍.jpg" alt="읍어">
+   <img src="../images/대나무숲.jpg" alt="읍어">
+   <img src="../images/등대.jpg" alt="읍어">
+   <img src="../images/배경1.jpg" alt="읍어">
+   <img src="../images/배경2.jpg" alt="읍어">
+  </div>
+ </div>
+</body>
+</html>

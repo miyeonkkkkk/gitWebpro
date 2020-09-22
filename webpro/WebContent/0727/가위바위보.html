@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<script>
+ function proc1() {
+	a = prompt("첫번째 사람 입력", "가위바위보");
+	b = prompt("두번째 사람 입력", "가위바위보");
+	
+	res = "첫번째 사람 : " + a + "<br>";
+	res += "두번째 사람 : " + b + "<br>";
+	
+	if(a == b){
+		res += "결 과 : 비김";
+	}else if(a == "가위" && b == "보"
+			|| a == "바위" && b == "가위"
+			|| a == "보" && b == "바위"){
+		res += "결 과 : 첫번째 사람 승!!!";
+	}else{
+		res += "결 과 : 두번째 사람 승!!!";
+	}
+	
+// 	둘중에 아무 방법이나 상관 없음. 하지만 둘이 같이 쓸경우 첫번째 줄은 삭제된다.
+	document.getElementById("result1").innerHTML = res;
+// 	document.querySelector("#result1").innerHTML = res; 
+    
+	
+}
+</script>
+<style>
+#result1{
+  background: lightblue;
+  padding : 10px;
+}
+</style>
+</head>
+<body>
+<pre>
+버튼을 클릭하면 두 사람의 가위바위보를 prompt로 입력하여
+승자를 가린다.
+</pre>
+ <input type="button" value="확인" onclick="proc1()">
+ <br><br>
+ <div id="result1"></div>
+</body>
+</html>

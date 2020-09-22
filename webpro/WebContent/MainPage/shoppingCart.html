@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+#tab1 {
+	border : 2px solid black;
+	border-collapse: collapse;
+	margin: 10px;
+	text-align: center;
+	font-family: "굴림";
+}
+#tr1{
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<table id = "tab1" border="1">
+	<tr id="tr1">
+		<th>품목</th>
+		<th>가격</th>
+		<th>수량</th>
+		<th>합계</th>
+	</tr>
+	
+	<tr>
+		<td>컴퓨터 세트</td>
+		<td>2,000,000원</td>
+		<td><input type="number" value="0" min="1" max="99" step="2"></td>
+		<td><input type="number" value="0"></td>
+	</tr>
+	
+	<tr>
+		<td>티셔츠</td>
+		<td>50,000원</td>
+		<td><input type="number" value="0" min="1" max="99" step="2"></td>
+		<td><input type="number" value="0"></td>
+	</tr>
+	
+	<tr>
+		<td>음악파일</td>
+		<td>1,000원</td>
+		<td><input type="number" value="0" min="1" max="99" step="2"></td>
+		<td><input type="number" value="0"></td>
+	</tr>
+	
+	<tr>
+		<td>영화파일</td>
+		<td>5,000원</td>
+		<td><input type="number" value="0" min="1" max="99" step="2"></td>
+		<td><input type="number" value="0"></td>
+	</tr>
+</table>
+<input type="button" value="계산" onclick="">
+<input type="button" value="구매" onclick="">
+<input type="button" value="초기화" onclick="">
+<br><br>
+<a href="mainpage2.html" >홈페이지로 돌아가기</a>
+</body>
+</html>

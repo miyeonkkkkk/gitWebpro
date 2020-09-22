@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#sendimg{
+	width : 50px;
+	height : 50px;
+}
+
+</style>
+</head>
+<body>
+ <form action ="input.jsp" method="post">
+ <!-- get은 중요한 데이터의 개수가 적을때 post는 그 반대 개수가 많을때 -->
+  <input type="hidden" value="korea" name="id">
+  <!-- hidden은 반드시 value가 있어야 한다. 화면상에 보이지 않는다. 서버로 전송만 한다.-->
+   이름  : <input type="text" name="name"><br>
+   <!-- input text는 한줄 입력만 가능하다. -->
+ 전화번호  : <input type="text" name="tel"><br>
+   성별  : <input type="radio" value="남자" name="gender">남자
+        <input type="radio" value="여자" name="gender">여자<br>
+        <!-- name이 같아야 한묶음이 된다. 여러개중에서 1개를 선택한다. -->
+  좋아하는 과일 : <input type="checkbox" value="사과" name="fruits">사과
+             <input type="checkbox" value="복숭아" name="fruits">복숭아
+             <input type="checkbox" value="자두" name="fruits">자두
+             <input type="checkbox" value="파인애플" name="fruits">파인애플
+             <input type="checkbox" value="참외" name="fruits">참외
+             <input type="checkbox" value="수박" name="fruits">수박<br>
+  첨부파일 :
+  <input type="file" name="file"><br>
+  
+  - 전송 수행 : input type=image, input type=submit<br>
+  - 일반 버튼 : input type=button<br>
+  <input id="sendimg" type="image" src="../images/JJ.png" >
+  <!-- submit = image 랑 같은 기능이다. -->
+  <input type="reset" value="취소">
+  <input type="submit" value="전송">
+  <br>
+  - 전송 수행 : button type=submit, button<br>
+  - 일반 버튼 : button type=button<br>
+  <input type="button" value="확인" onclick="alert('안녕하세요?')">
+  <button type="button" onclick="alert('안녕하세요?')">확인</button><br>
+  <!-- 위의 button 기능 없음/ 기능을 넣을려면 별도의 스크립트 필요/ alert() 이미 만들어진 메서드-->
+  <br>
+  <button type="submit">전송</button>
+  <button>전송</button>
+  <button type="reset">취소또는초기화</button>
+  
+ </form>
+</body>
+</html>
